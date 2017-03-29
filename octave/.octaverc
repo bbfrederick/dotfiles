@@ -1,0 +1,8 @@
+if ( exist ('startup.m', 'file') )
+  source ('startup.m')  # load startup.m like matlab
+endif
+addpath ('/usr/local/fsl/etc/matlab');
+
+## Begin savepath auto-created section, do not edit
+  addpath ('/usr/local/fsl/etc/matlab', '-begin');
+## End savepath auto-created section
