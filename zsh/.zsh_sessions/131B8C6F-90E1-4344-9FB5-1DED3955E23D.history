@@ -1,0 +1,17 @@
+conda create -n rapidtide
+conda update -n base -c defaults conda
+conda activate rapidtide
+conda install pyqt
+conda install pyqtgraph
+conda install pyfftw
+conda config --add channels conda-forge \
+conda config --set channel_priority strict
+history
+conda install -n base -c mamba
+conda install -n base -c defaults mamba
+conda install pyfftw
+cd
+cd Downloads
+ls
+ls
+python2 fslinstaller.py
