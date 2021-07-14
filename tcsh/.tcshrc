@@ -62,15 +62,8 @@ if ( -e /Applications/freesurfer ) then
     setenv FS_LICENSE $FREESURFER_HOME/.license
     endif
 
-# check for uncommitted CVS files
-alias cvscheck 'cvs status | grep tatus | egrep -v Up-to-date'
-
 # Add in AFNI tools
 setenv PATH /usr/local/AFNI:$PATH
-
-# configure ssh on Mac Pro
-alias tomp ssh -2 -6 -X frederic@bbf-mp.38265877.members.btmm.icloud.com
-alias ftpmp sftp -2 -6 frederic@bbf-mp.38265877.members.btmm.icloud.com
 
 # add support for caret
 #setenv PATH ${PATH}:/Applications/caret/bin_macosx64:${SUBJECTS_DIR}/freesurfer_to_fs_LR
@@ -136,10 +129,6 @@ alias tmfast sudo sysctl debug.lowpri_throttle_enabled=0
 
 # add mrtrix3
 set path = (${HOME}/code/mrtrix3/bin $path)
-
-# MacPorts Installer addition on 2020-01-03_at_00:55:24: adding an appropriate PATH variable for use with MacPorts.
-setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
 
 # add datalad and friends
 setenv PATH "${HOME}/.local/bin:$PATH"

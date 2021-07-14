@@ -17,20 +17,39 @@ alias toclusterroot="ssh -XYC micc.mclean.harvard.edu -l root"
 alias totesla1="ssh -XYC tesla1.mclean.harvard.edu"
 alias hist="history 1"
 
+#history file
+export HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+
 #set history size
 export HISTSIZE=5000
 
 #save history after logout
 export SAVEHIST=5000
 
-#history file
-export HISTFILE=~/.zhistory
+# share history across multiple zsh sessions
+setopt SHARE_HISTORY
 
-#append into history file
+# append to history
+setopt APPEND_HISTORY
+
+# adds commands as they are typed, not at shell exit
 setopt INC_APPEND_HISTORY
 
-#save only one command if 2 common are same and consistent
+# expire duplicates first
+setopt HIST_EXPIRE_DUPS_FIRST 
+
+# do not store duplications
 setopt HIST_IGNORE_DUPS
+
+#ignore duplicates when searching
+setopt HIST_FIND_NO_DUPS
+
+# removes blank lines from history
+setopt HIST_REDUCE_BLANKS
+
+# allow zsh to correct commands
+setopt CORRECT
+setopt CORRECT_ALL
 
 #add timestamp for each entry
 setopt EXTENDED_HISTORY   
