@@ -1,10 +1,15 @@
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/frederic/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/frederic/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/frederic/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/frederic/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-# added by Anaconda 2.2.0 installer
-export PATH="/Users/frederic/anaconda/bin:$PATH"
-export PATH=/usr/local/lib:/usr/local/bin:$PATH
-
-# added by Anaconda2 2.4.1 installer
-export PATH="/Users/frederic/anaconda/bin:$PATH"
-
-# added by Anaconda3 4.0.0 installer
-export PATH="/Users/frederic/anaconda/bin:$PATH"
