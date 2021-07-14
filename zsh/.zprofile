@@ -32,3 +32,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# add datalad and friends
+PATH=${HOME}/.local/bin:$PATH
+PATH=/usr/local/sbin:$PATH
+
