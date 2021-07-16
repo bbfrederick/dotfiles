@@ -23,7 +23,6 @@ if [ -d "${HOME}/opt/anaconda3" ];then
 else
     CONDADIR=opt/miniconda3
 fi
-echo "CONDADIR set to "${CONDADIR}
 
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('${HOME}/${CONDADIR}/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -33,13 +32,16 @@ else
     if [ -f "${HOME}/${CONDADIR}/etc/profile.d/conda.sh" ]; then
         . "${HOME}/${CONDADIR}/etc/profile.d/conda.sh"
     else
-        export PATH="${HOME}/${CONDADIR}/bin:$PATH"
+        export PATH="${HOME}/${CONDADIR}/bin:${PATH}"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
 # add datalad and friends
-PATH=${HOME}/.local/bin:$PATH
-PATH=/usr/local/sbin:$PATH
+PATH=${HOME}/.local/bin:${PATH}
+PATH=/usr/local/sbin:${PATH}
+
+# add local directory
+PATH=.:${PATH}
 
