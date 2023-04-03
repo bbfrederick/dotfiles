@@ -1,0 +1,56 @@
+# Add in the tools I'm used to
+alias resource="source ${HOME}/.zshrc"
+alias c="clear"
+alias topi="ssh raspberrypi.local. -l pi"
+alias ftppi="sftp pi@raspberrypi.local."
+alias to4t="rlogin mclean4t2.mclean.harvard.edu -l vnmr1"
+alias ls="ls -CF"
+alias ci="vi"
+alias sum="paste -sd+ - | bc"
+alias vmsize="ps -o pid,rss,vsz,comm -ax | sort -k3n"
+alias tohms="ssh -XYC o2.hms.harvard.edu -l bdf1"
+alias tohmsxfer="ssh -XYC transfer.rc.hms.harvard.edu -l bdf1"
+alias toeris="ssh -XYC erisone.partners.org -l bbf2"
+alias toumass="ssh -XYC ghpcc06.umassrc.org -l cm31w"
+alias tocluster="ssh -XYC micc.mclean.harvard.edu"
+alias tocluster2="ssh -XYC mickey.mclean.harvard.edu"
+alias toclusterroot="ssh -XYC micc.mclean.harvard.edu -l root"
+alias totesla1="ssh -XYC tesla1.mclean.harvard.edu"
+alias hist="history 1"
+
+# auto-inserted by @update.afni.binaries :
+export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/opt/X11/lib/flat_namespace
+
+# auto-inserted by @update.afni.binaries :
+#    set up tab completion for AFNI programs
+if [ -f $HOME/.afni/help/all_progs.COMP.zsh ]
+then
+   autoload -U +X bashcompinit && bashcompinit
+   autoload -U +X compinit && compinit \
+      && source $HOME/.afni/help/all_progs.COMP.zsh
+fi
+
+export PATH=$PATH:/opt/abin
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/frederic/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/frederic/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/frederic/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/frederic/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# add homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH=$PATH:/opt/homebrew/opt/python/libexec/bin
+export PATH=$PATH:/Library/Frameworks/R.framework/Resources
+
+# Codon compiler path (added by install script)
+export PATH=/Users/frederic/.codon/bin:$PATH
