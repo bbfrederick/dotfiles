@@ -1,0 +1,59 @@
+# Now set up the programs and science stuff
+# FSL Setup
+module load fsl
+
+# freesurfer stuff
+module load freesurfer
+
+# conda stuff
+module load anaconda3
+echo "conda binary is "${CONDA_EXE}
+
+# ANTs stuff
+ANTSDIR=/cm/shared/ANTs-2.3.5
+PATH=${ANTSDIR}/install/bin:${PATH}
+export ANTSDIR PATH
+
+# add AFNI
+module load afni
+#    set up tab completion for AFNI programs
+if [ -f $HOME/.afni/help/all_progs.COMP.zsh ]
+then
+   autoload -U +X bashcompinit && bashcompinit
+   autoload -U +X compinit && compinit \
+       && source $HOME/.afni/help/all_progs.COMP.zsh
+fi
+
+# SGE stuff
+#module load sge/2011.11p1
+#SGE_ROOT=/cm/shared/apps/sge/current
+#SGE_CELL=default
+#export SGE_ROOT SGE_CELL
+
+alias q 'qstat -u "*"'
+
+# # add datalad and friends
+# PATH=${HOME}/.local/bin:${PATH}
+# PATH=/usr/local/sbin:${PATH}
+
+# use the right version of matlab
+MATLABDIR=/cm/shared/apps/MATLAB/R2019b
+PATH=${MATLABDIR}/bin:${PATH}
+export MATLABDIR PATH
+
+# add local directory
+PATH=.:${PATH}
+export PATH
+
+export GOPATH=/cm/shared/go/bin
+export PATH=${GOPATH}:${PATH}
+
+# add workbench
+export WBPATH=/cm/shared/workbench1.5.0
+export PATH=${WBPATH}/bin_rh_linux64:${PATH}
+
+# add ukbb pipeline
+export BB_BIN_DIR=/home/frederic/code/UK_biobank_pipeline_v_1-master
+
+# add cmake
+export PATH=/cm/shared/cmake-3.13.4-Linux-x86_64/bin:${PATH}

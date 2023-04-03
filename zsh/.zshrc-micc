@@ -1,0 +1,94 @@
+# FSL Setup
+FSLDIR=/cm/shared/fsl-6.0.6.3
+PATH=${PATH}:${FSLDIR}/share/fsl/bin
+export FSLDIR PATH
+. ${FSLDIR}/etc/fslconf/fsl.sh
+
+# SGE stuff
+module load sge/2011.11p1
+SGE_ROOT=/cm/shared/apps/sge/current
+SGE_CELL=default
+export SGE_ROOT SGE_CELL
+
+# freesurfer stuff
+NO_MINC=True
+NO_FSFAST=True
+if [ -d /cm/shared/freesurfer ]; then
+    FREESURFER_HOME=/cm/shared/freesurfer-7-dev
+    source ${FREESURFER_HOME}/SetUpFreeSurfer.sh
+    SUBJECTS_DIR=/data/${USER}/SURFER
+    FS_LICENSE=${FREESURFER_HOME}/../.license
+    export FREESURFER_HOME TUTORIAL_DATA SUBJECTS_DIR FS_LICENSE
+    alias  freesurfer_sub 'fsl_sub -T 10000'
+else
+    echo "freesurfer not installed, skipping"
+fi
+
+alias q 'qstat -u "*"'
+
+# ANTs stuff
+ANTSDIR=/cm/shared/ANTs-2.3.5
+PATH=${ANTSDIR}/install/bin:${PATH}
+export ANTSDIR PATH
+
+# # add datalad and friends
+# PATH=${HOME}/.local/bin:${PATH}
+# PATH=/usr/local/sbin:${PATH}
+
+# use the right version of matlab
+MATLABDIR=/cm/shared/apps/MATLAB/R2019b
+PATH=${MATLABDIR}/bin:${PATH}
+export MATLABDIR PATH
+
+
+# add local directory
+PATH=.:${PATH}
+export PATH
+# auto-inserted by @update.afni.binaries :
+#    set up tab completion for AFNI programs
+if [ -f $HOME/.afni/help/all_progs.COMP.zsh ]
+then
+   autoload -U +X bashcompinit && bashcompinit
+   autoload -U +X compinit && compinit \
+       && source $HOME/.afni/help/all_progs.COMP.zsh
+fi
+
+# add AFNI
+export PATH=${PATH}:/cm/shared/abin
+
+export GOPATH=/cm/shared/go/bin
+export PATH=${GOPATH}:${PATH}
+
+# >>> conda initialize >>>
+if [ -d "${HOME}/opt/anaconda3" ];then
+    CONDADIR=${HOME}/opt/anaconda3
+else
+    CONDADIR=/cm/shared/anaconda3
+fi
+
+echo "CONDADIR is "${CONDADIR}
+
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('${CONDADIR}/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "${CONDADIR}/etc/profile.d/conda.sh" ]; then
+# . "${HOME}/${CONDADIR}/etc/profile.d/conda.sh"  # commented out by conda initialize
+    else
+#        export PATH="${CONDADIR}/bin:${PATH}"
+    fi
+fi
+unset __conda_setup
+source ${CONDADIR}/etc/profile.d/conda.sh
+conda activate
+
+# add workbench
+export WBPATH=/cm/shared/workbench1.5.0
+export PATH=${WBPATH}/bin_rh_linux64:${PATH}
+
+# add ukbb pipeline
+export BB_BIN_DIR=/home/frederic/code/UK_biobank_pipeline_v_1-master
+
+# add cmake
+export PATH=/cm/shared/cmake-3.13.4-Linux-x86_64/bin:${PATH}
