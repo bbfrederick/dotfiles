@@ -1,3 +1,6 @@
+# source the initial bash file
+source ~proto/.bashrc.master
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 # End of lines configured by zsh-newuser-install
@@ -6,7 +9,6 @@ zstyle :compinstall filename "${HOME}/.zshrc"
 
 HISTSIZE=10000000
 SAVEHIST=10000000
-
 
 autoload -Uz compinit
 compinit

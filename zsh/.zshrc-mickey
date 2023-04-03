@@ -1,6 +1,3 @@
-# Source the system bashrc to get a helpful alias
-source ~proto/.bashrc.master.mickey
-
 # Now set up the programs and science stuff
 # FSL Setup
 module load fsl
