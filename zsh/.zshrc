@@ -1,31 +1,33 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=5000
+SAVEHIST=5000
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename "${HOME}/.zshrc"
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
 # Add in the tools I'm used to
 alias resource="source ${HOME}/.zshrc"
 alias c="clear"
-alias topi="ssh raspberrypi.local. -l pi"
-alias ftppi="sftp pi@raspberrypi.local."
-alias to4t="rlogin mclean4t2.mclean.harvard.edu -l vnmr1"
 alias ls="ls -CF"
 alias ci="vi"
-alias sum="paste -sd+ - | bc"
-alias vmsize="ps -o pid,rss,vsz,comm -ax | sort -k3n"
+alias hist="history 1"
+
+# Add shortcuts to get to other machines
+alias to4t="rlogin mclean4t2.mclean.harvard.edu -l vnmr1"
+alias to94t="rlogin mclean94t2.mclean.harvard.edu -l vnmr1"
 alias tohms="ssh -XYC o2.hms.harvard.edu -l bdf1"
 alias tohmsxfer="ssh -XYC transfer.rc.hms.harvard.edu -l bdf1"
 alias toeris="ssh -XYC erisone.partners.org -l bbf2"
-alias toumass="ssh -XYC ghpcc06.umassrc.org -l cm31w"
-alias tocluster="ssh -XYC micc.mclean.harvard.edu"
-alias toclusterroot="ssh -XYC micc.mclean.harvard.edu -l root"
 alias totesla1="ssh -XYC tesla1.mclean.harvard.edu"
-alias hist="history 1"
 
-#history file
-export HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
-
-#set history size
-export HISTSIZE=5000
-
-#save history after logout
-export SAVEHIST=5000
-
+# #history file
+#export HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+#
 # share history across multiple zsh sessions
 setopt SHARE_HISTORY
 
@@ -36,7 +38,7 @@ setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 
 # expire duplicates first
-setopt HIST_EXPIRE_DUPS_FIRST 
+setopt HIST_EXPIRE_DUPS_FIRST
 
 # do not store duplications
 setopt HIST_IGNORE_DUPS
@@ -52,49 +54,23 @@ setopt CORRECT
 setopt CORRECT_ALL
 
 #add timestamp for each entry
-setopt EXTENDED_HISTORY   
-
-# Initialize autocomplete
-autoload -Uz compinit && compinit
+setopt EXTENDED_HISTORY
 
 # set autopushd
 setopt AUTO_PUSHD
 
 # set the prompt
-#PROMPT='%F{45}%1~%f %# '
 PROMPT='%F{45}%~%f %# '
 
-#export PATH=$PATH:/Library/Frameworks/R.framework/Resources
-#export PATH=$PATH:/usr/local/gfortran/bin
+# now do machine specific configuration
+architecture=`uname`
+instructionset=`uname -m`
 
-# auto-inserted by @update.afni.binaries :
-export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/opt/X11/lib/flat_namespace
+echo "architecture is "${architecture}", instruction set is "${instructionset}
 
-# auto-inserted by @update.afni.binaries :
-#    set up tab completion for AFNI programs
-if [ -f $HOME/.afni/help/all_progs.COMP.zsh ]
-then
-   autoload -U +X bashcompinit && bashcompinit
-   autoload -U +X compinit && compinit \
-      && source $HOME/.afni/help/all_progs.COMP.zsh
+if [ -f /cm/shared/.cluster-name-mickey ]; then
+   source ~/.zshrc-mickey
 fi
-
-
-export PATH=$PATH:/usr/local/abin
-export PATH=$PATH:/usr/local/itksnaptools
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/frederic/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/frederic/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/frederic/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/frederic/opt/anaconda3/bin:$PATH"
-    fi
+if [ -f /cm/shared/.cluster-name-micc ]; then
+   source ~/.zshrc-micc
 fi
-unset __conda_setup
-# <<< conda initialize <<<
-
