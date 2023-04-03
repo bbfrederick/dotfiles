@@ -1,5 +1,5 @@
 # FSL Setup
-FSLDIR=/opt/fsl-6.0.6.3
+FSLDIR=/opt/fsl-6.0.6.4
 PATH=${PATH}:${FSLDIR}/share/fsl/bin
 export FSLDIR PATH
 . ${FSLDIR}/etc/fslconf/fsl.sh
