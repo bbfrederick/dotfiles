@@ -74,3 +74,11 @@ fi
 if [ -f /cm/shared/.cluster-name-micc ]; then
    source ~/.zshrc-micc
 fi
+
+if [ "${!architecture}" -eq "Darwin" ]; then
+    if [ "${!instructionset}" -eq "arm64" ]; then
+        source ~/.zshrc-armmac
+    else
+        source ~/.zshrc-intelmac
+    fi
+fi
