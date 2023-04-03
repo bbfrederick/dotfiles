@@ -1,18 +1,22 @@
+# Source the system bashrc to get a helpful alias
+source ~proto/.bashrc.master.mickey
+
 # Now set up the programs and science stuff
 # FSL Setup
 module load fsl
+echo "FSL loaded"
 
 # freesurfer stuff
-module load freesurfer
+module load freesurfer/dev
+echo "freesurfer loaded"
 
 # conda stuff
 module load anaconda3
 echo "conda binary is "${CONDA_EXE}
 
 # ANTs stuff
-ANTSDIR=/cm/shared/ANTs-2.3.5
-PATH=${ANTSDIR}/install/bin:${PATH}
-export ANTSDIR PATH
+module load ants
+echo "ANTs loaded"
 
 # add AFNI
 module load afni
@@ -23,18 +27,16 @@ then
    autoload -U +X compinit && compinit \
        && source $HOME/.afni/help/all_progs.COMP.zsh
 fi
+echo "AFNI loaded"
 
-# SGE stuff
-#module load sge/2011.11p1
-#SGE_ROOT=/cm/shared/apps/sge/current
-#SGE_CELL=default
-#export SGE_ROOT SGE_CELL
-
-alias q 'qstat -u "*"'
 
 # # add datalad and friends
 # PATH=${HOME}/.local/bin:${PATH}
 # PATH=/usr/local/sbin:${PATH}
+
+# Add singularity
+module add apptainer
+echo "singularity loaded"
 
 # use the right version of matlab
 MATLABDIR=/cm/shared/apps/MATLAB/R2019b
