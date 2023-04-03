@@ -24,6 +24,9 @@ alias tohms="ssh -XYC o2.hms.harvard.edu -l bdf1"
 alias tohmsxfer="ssh -XYC transfer.rc.hms.harvard.edu -l bdf1"
 alias toeris="ssh -XYC erisone.partners.org -l bbf2"
 alias totesla1="ssh -XYC tesla1.mclean.harvard.edu"
+alias tocluster="ssh -XYC micc.mclean.harvard.edu -l frederic"
+alias tocluster2="ssh -XYC mickey.mclean.harvard.edu -l frederic"
+
 
 # #history file
 #export HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
