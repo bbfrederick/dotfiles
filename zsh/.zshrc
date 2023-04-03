@@ -106,3 +106,6 @@ if [ "${architecture}" = "Darwin" ]; then
         source ~/.zshrc-intelmac
     fi
 fi
+
+# set the prompt to the spiffy starship one
+eval "$(starship init zsh)"
