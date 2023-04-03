@@ -1,6 +1,3 @@
-# source the initial bash file
-source ~proto/.bashrc.master
-
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 # End of lines configured by zsh-newuser-install
@@ -94,10 +91,12 @@ instructionset=`uname -m`
 echo "architecture is "${architecture}", instruction set is "${instructionset}
 
 if [ -f /cm/shared/.cluster-name-mickey ]; then
-   source ~/.zshrc-mickey
+    source ~proto/.bashrc.master
+    source ~/.zshrc-mickey
 fi
 if [ -f /cm/shared/.cluster-name-micc ]; then
-   source ~/.zshrc-micc
+    source ~proto/.bashrc.master
+    source ~/.zshrc-micc
 fi
 
 if [ "${architecture}" = "Darwin" ]; then
