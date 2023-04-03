@@ -108,4 +108,5 @@ if [ "${architecture}" = "Darwin" ]; then
 fi
 
 # set the prompt to the spiffy starship one
+export STARSHIP_CONFIG=${HOME}/.starship.toml
 eval "$(starship init zsh)"
