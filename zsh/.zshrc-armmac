@@ -1,22 +1,27 @@
-# Add in the tools I'm used to
-alias resource="source ${HOME}/.zshrc"
-alias c="clear"
-alias topi="ssh raspberrypi.local. -l pi"
-alias ftppi="sftp pi@raspberrypi.local."
-alias to4t="rlogin mclean4t2.mclean.harvard.edu -l vnmr1"
-alias ls="ls -CF"
-alias ci="vi"
-alias sum="paste -sd+ - | bc"
-alias vmsize="ps -o pid,rss,vsz,comm -ax | sort -k3n"
-alias tohms="ssh -XYC o2.hms.harvard.edu -l bdf1"
-alias tohmsxfer="ssh -XYC transfer.rc.hms.harvard.edu -l bdf1"
-alias toeris="ssh -XYC erisone.partners.org -l bbf2"
-alias toumass="ssh -XYC ghpcc06.umassrc.org -l cm31w"
-alias tocluster="ssh -XYC micc.mclean.harvard.edu"
-alias tocluster2="ssh -XYC mickey.mclean.harvard.edu"
-alias toclusterroot="ssh -XYC micc.mclean.harvard.edu -l root"
-alias totesla1="ssh -XYC tesla1.mclean.harvard.edu"
-alias hist="history 1"
+# FSL Setup
+FSLDIR=/opt/fsl-6.0.6.3
+PATH=${PATH}:${FSLDIR}/share/fsl/bin
+export FSLDIR PATH
+. ${FSLDIR}/etc/fslconf/fsl.sh
+
+# freesurfer stuff
+NO_MINC=True
+NO_FSFAST=True
+if [ -d /Applications/freesurfer ]; then
+FREESURFER_HOME=/Applications/freesurfer/dev
+source ${FREESURFER_HOME}/SetUpFreeSurfer.sh
+TUTORIAL_DATA=/Volumes/PictureBackup/buckner_data/tutorial_subjs
+SUBJECTS_DIR=~/Dropbox_PHC/MR_data/SURFER
+FS_LICENSE=${FREESURFER_HOME}/../.license
+export FREESURFER_HOME TUTORIAL_DATA SUBJECTS_DIR FS_LICENSE
+else
+echo "freesurfer not installed, skipping"
+fi
+
+# ANTs stuff
+ANTSDIR=/opt/ANTs-2.4.3
+PATH=${ANTSDIR}/install/bin:${PATH}
+export ANTSDIR PATH
 
 # auto-inserted by @update.afni.binaries :
 export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/opt/X11/lib/flat_namespace
@@ -47,6 +52,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# add datalad and friends
+PATH=${HOME}/.local/bin:${PATH}
+PATH=/usr/local/sbin:${PATH}
+
 # add homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH=$PATH:/opt/homebrew/opt/python/libexec/bin
@@ -54,3 +63,7 @@ export PATH=$PATH:/Library/Frameworks/R.framework/Resources
 
 # Codon compiler path (added by install script)
 export PATH=/Users/frederic/.codon/bin:$PATH
+
+# add local directory
+PATH=.:${PATH}
+
