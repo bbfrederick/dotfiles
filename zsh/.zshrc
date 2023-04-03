@@ -33,6 +33,7 @@ alias tocluster2="ssh -XYC mickey.mclean.harvard.edu -l frederic"
 # #history file
 #export HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 #
+# Treat the '!' character specially during expansion.
 setopt BANG_HIST                 
 
 # Delete old recorded entry if new entry is a duplicate.
