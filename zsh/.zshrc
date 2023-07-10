@@ -1,3 +1,5 @@
+echo "running .zshrc"
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 # End of lines configured by zsh-newuser-install
@@ -129,4 +131,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
