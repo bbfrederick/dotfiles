@@ -52,13 +52,6 @@ export MATLABDIR PATH
 # add local directory
 PATH=.:${PATH}
 
-# FSL Setup
-FSLDIR=/opt/fsl-6.0.6.4
-PATH=${PATH}:${FSLDIR}/share/fsl/bin
-export FSLDIR PATH
-. ${FSLDIR}/etc/fslconf/fsl.sh
-
-
 AWSDIR=/usr/local/aws-cli
 PATH=${AWSDIR}:${PATH}
 export AWSDIR PATH

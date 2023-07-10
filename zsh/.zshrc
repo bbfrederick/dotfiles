@@ -29,7 +29,7 @@ alias tocluster="ssh -XYC micc.mclean.harvard.edu -l frederic"
 alias tocluster2="ssh -XYC mickey.mclean.harvard.edu -l frederic"
 alias toaws="aws s3 ls --profile AWSAdministratorAccess-434245788206"
 alias yawsso="yawsso -p AWSAdministratorAccess-434245788206"
-alias runbatch="aws batch submit-job $(./batch-stack-info) --job-name rapidtiderunarr --array-properties size=2 --container-overrides command=bash,/data_out/config/rapidtide-HCPYA,ARRAY,REST1,RL"
+#alias runbatch="aws batch submit-job $(./batch-stack-info) --job-name rapidtiderunarr --array-properties size=2 --container-overrides command=bash,/data_out/config/rapidtide-HCPYA,ARRAY,REST1,RL"
 alias awsrelog="open https://massgeneralbrighamresearch.awsapps.com/start#/"
 
 
