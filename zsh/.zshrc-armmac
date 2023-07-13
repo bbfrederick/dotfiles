@@ -37,11 +37,6 @@ export PATH=$PATH:/opt/abin
 PATH=${HOME}/.local/bin:${PATH}
 PATH=/usr/local/sbin:${PATH}
 
-# add homebrew
-export PATH="/opt/homebrew-arm/bin:$PATH"
-export PATH=$PATH:/opt/homebrew-arm/opt/python/libexec/bin
-export PATH=$PATH:/Library/Frameworks/R.framework/Resources
-
 # Codon compiler path (added by install script)
 export PATH=/Users/frederic/.codon/bin:$PATH
 
