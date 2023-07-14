@@ -113,15 +113,17 @@ if [ "${architecture}" = "Darwin" ]; then
     fi
 fi
 
+if [ "$(arch)" = "arm64" ]; then
+    echo "using arm64 homebrew"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+    echo "using intel homebrew"
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
+
 # set the prompt to the spiffy starship one
 export STARSHIP_CONFIG=${HOME}/.starship.toml
 eval "$(starship init zsh)"
-
-if [ "$(arch)" = "arm64" ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-    eval "$(/usr/local/bin/brew shellenv)"
-fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
