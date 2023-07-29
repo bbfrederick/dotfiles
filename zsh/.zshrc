@@ -1,3 +1,5 @@
+echo "running .zshrc"
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 # End of lines configured by zsh-newuser-install
@@ -21,12 +23,16 @@ alias hist="history 1"
 # Add shortcuts to get to other machines
 alias to4t="rlogin mclean4t2.mclean.harvard.edu -l vnmr1"
 alias to94t="rlogin mclean94t2.mclean.harvard.edu -l vnmr1"
-alias tohms="ssh -XYC o2.hms.harvard.edu -l bdf1"
-alias tohmsxfer="ssh -XYC transfer.rc.hms.harvard.edu -l bdf1"
-alias toeris="ssh -XYC erisone.partners.org -l bbf2"
-alias totesla1="ssh -XYC tesla1.mclean.harvard.edu"
-alias tocluster="ssh -XYC micc.mclean.harvard.edu -l frederic"
-alias tocluster2="ssh -XYC mickey.mclean.harvard.edu -l frederic"
+alias tohms="ssh -Y o2.hms.harvard.edu -l bdf1"
+alias tohmsxfer="ssh -Y transfer.rc.hms.harvard.edu -l bdf1"
+alias toeris="ssh -Y erisone.partners.org -l bbf2"
+alias totesla1="ssh -Y tesla1.mclean.harvard.edu"
+alias tocluster="ssh -Y micc.mclean.harvard.edu -l frederic"
+alias tocluster2="ssh -Y mickey.mclean.harvard.edu -l frederic"
+alias toaws="aws s3 ls --profile AWSAdministratorAccess-434245788206"
+alias yawsso="yawsso -p AWSAdministratorAccess-434245788206"
+#alias runbatch="aws batch submit-job $(./batch-stack-info) --job-name rapidtiderunarr --array-properties size=2 --container-overrides command=bash,/data_out/config/rapidtide-HCPYA,ARRAY,REST1,RL"
+alias awsrelog="open https://massgeneralbrighamresearch.awsapps.com/start#/"
 
 
 # #history file
@@ -107,6 +113,14 @@ if [ "${architecture}" = "Darwin" ]; then
     fi
 fi
 
+if [ "$(arch)" = "arm64" ]; then
+    echo "using arm64 homebrew"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+    echo "using intel homebrew"
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
+
 # set the prompt to the spiffy starship one
 export STARSHIP_CONFIG=${HOME}/.starship.toml
 eval "$(starship init zsh)"
@@ -125,4 +139,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-

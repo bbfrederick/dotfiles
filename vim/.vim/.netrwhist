@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/frederic/bin/cbvtools'
-let g:netrw_dirhist_2='/data/frederic/DID/overallanalysis'
-let g:netrw_dirhist_3='/data1/frederic/connectome/analysis'
-let g:netrw_dirhist_4='/data1/frederic/connectome/analysis/movies/103414'

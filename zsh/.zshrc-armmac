@@ -1,8 +1,4 @@
-# FSL Setup
-FSLDIR=/opt/fsl-6.0.6.4
-PATH=${PATH}:${FSLDIR}/share/fsl/bin
-export FSLDIR PATH
-. ${FSLDIR}/etc/fslconf/fsl.sh
+echo "running .zshrc-armmac"
 
 # freesurfer stuff
 NO_MINC=True
@@ -37,33 +33,22 @@ fi
 
 export PATH=$PATH:/opt/abin
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/frederic/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/frederic/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/frederic/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/frederic/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 # add datalad and friends
 PATH=${HOME}/.local/bin:${PATH}
 PATH=/usr/local/sbin:${PATH}
 
-# add homebrew
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH=$PATH:/opt/homebrew/opt/python/libexec/bin
-export PATH=$PATH:/Library/Frameworks/R.framework/Resources
-
 # Codon compiler path (added by install script)
 export PATH=/Users/frederic/.codon/bin:$PATH
+
+# use the right version of matlab
+MATLABDIR=/Applications/MATLAB_R2020b.app
+PATH=${MATLABDIR}/bin:${PATH}
+export MATLABDIR PATH
+
 
 # add local directory
 PATH=.:${PATH}
 
+AWSDIR=/usr/local/aws-cli
+PATH=${AWSDIR}:${PATH}
+export AWSDIR PATH

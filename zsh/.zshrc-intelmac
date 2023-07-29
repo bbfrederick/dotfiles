@@ -41,3 +41,8 @@ PATH=.:${PATH}
 # The original version is saved in .zprofile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
+
+# AWS setup
+AWSDIR=/usr/local/aws-cli
+PATH=${AWSDIR}:${PATH}
+export AWSDIR PATH
