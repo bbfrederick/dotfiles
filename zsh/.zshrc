@@ -111,14 +111,13 @@ if [ "${architecture}" = "Darwin" ]; then
     else
         source ~/.zshrc-intelmac
     fi
-fi
-
-if [ "$(arch)" = "arm64" ]; then
-    echo "using arm64 homebrew"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-    echo "using intel homebrew"
-    eval "$(/usr/local/bin/brew shellenv)"
+    if [ "$(arch)" = "arm64" ]; then
+        echo "using arm64 homebrew"
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    else
+        echo "using intel homebrew"
+        eval "$(/usr/local/bin/brew shellenv)"
+    fi
 fi
 
 # set the prompt to the spiffy starship one
