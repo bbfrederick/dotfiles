@@ -1,8 +1,8 @@
 echo "running .zshrc-armmac"
 
 # ANTs stuff
-ANTSDIR=/opt/ANTs-2.4.3
-PATH=${ANTSDIR}/install/bin:${PATH}
+ANTSDIR=/opt/ANTs-2.5.0
+PATH=${ANTSDIR}/bin:${PATH}
 export ANTSDIR PATH
 
 # auto-inserted by @update.afni.binaries :
