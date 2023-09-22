@@ -1,7 +1,7 @@
 echo "running .zshrc-armmac"
 
 # ANTs stuff
-ANTSDIR=/opt/ANTs-2.5.0
+ANTSDIR=/opt/ANTs-2.5.0_M1
 PATH=${ANTSDIR}/bin:${PATH}
 export ANTSDIR PATH
 
