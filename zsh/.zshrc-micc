@@ -27,7 +27,7 @@ fi
 alias q 'qstat -u "*"'
 
 # ANTs stuff
-ANTSDIR=/cm/shared/ANTs-2.4.3/bin
+ANTSDIR=/cm/shared/ants-2.4.3/bin
 PATH=${ANTSDIR}:${PATH}
 export ANTSDIR PATH
 
