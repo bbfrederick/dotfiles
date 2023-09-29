@@ -38,7 +38,7 @@ module add apptainer
 echo "singularity loaded"
 
 # use the right version of matlab
-MATLABDIR=/cm/shared/apps/MATLAB/R2019b
+MATLABDIR=/cm/shared/apps/MATLAB/R2023a
 PATH=${MATLABDIR}/bin:${PATH}
 export MATLABDIR PATH
 
@@ -50,7 +50,7 @@ export GOPATH=/cm/shared/go/bin
 export PATH=${GOPATH}:${PATH}
 
 # add workbench
-export WBPATH=/cm/shared/workbench1.5.0
+export WBPATH=/cm/shared/apps/workbench1.5.0
 export PATH=${WBPATH}/bin_rh_linux64:${PATH}
 
 # add ukbb pipeline
