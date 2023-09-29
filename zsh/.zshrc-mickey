@@ -58,3 +58,7 @@ export BB_BIN_DIR=/home/frederic/code/UK_biobank_pipeline_v_1-master
 
 # add cmake
 export PATH=/cm/shared/cmake-3.13.4-Linux-x86_64/bin:${PATH}
+
+# slurm helpers
+alias slacct='sacct --format JobName%15,JobID,TimelimitRaw,TotalCPU,MaxRSS,MaxVMSize,MaxPages,Elapsed,State,Nodelist'
+alias scancelall='scancel -u frederic'
