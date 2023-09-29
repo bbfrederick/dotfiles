@@ -13,6 +13,8 @@ echo "conda binary is "${CONDA_EXE}
 
 # ANTs stuff
 module load ants
+ANTSDIR=${ANTSPATH}
+export ANTSDIR
 echo "ANTs loaded"
 
 # add AFNI
