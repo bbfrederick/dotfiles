@@ -42,12 +42,6 @@ WBDIR=/opt/workbench
 PATH=${WBDIR}/bin_macosx64:${PATH}
 export WBDIR PATH
 
-# FSL Setup
-FSLDIR=/opt/fsl-latest
-PATH=${PATH}:${FSLDIR}/share/fsl/bin
-export FSLDIR PATH
-. ${FSLDIR}/etc/fslconf/fsl.sh
-
 # freesurfer stuff
 NO_MINC=True
 NO_FSFAST=True
