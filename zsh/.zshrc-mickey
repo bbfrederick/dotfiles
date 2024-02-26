@@ -1,7 +1,6 @@
 # Now set up the programs and science stuff
 # FSL Setup
 module load fsl
-FSLDIR=/cm/shared/apps/fsl-6.0.7.4
 echo "FSL loaded"
 
 # freesurfer stuff
@@ -14,8 +13,6 @@ echo "conda binary is "${CONDA_EXE}
 
 # ANTs stuff
 module load ants
-ANTSDIR=${ANTSPATH}
-export ANTSDIR
 echo "ANTs loaded"
 
 # add AFNI
@@ -39,27 +36,30 @@ module add apptainer
 echo "singularity loaded"
 
 # use the right version of matlab
-MATLABDIR=/cm/shared/apps/MATLAB/R2023a
-PATH=${MATLABDIR}/bin:${PATH}
-export MATLABDIR PATH
+module load matlab
+echo "matlab loaded"
 
 # add local directory
 PATH=.:${PATH}
 export PATH
 
+# add go
+#module load go
 export GOPATH=/cm/shared/go/bin
 export PATH=${GOPATH}:${PATH}
 
 # add workbench
-export WBPATH=/cm/shared/apps/workbench1.5.0
-export PATH=${WBPATH}/bin_rh_linux64:${PATH}
+module load workbench
 
 # add ukbb pipeline
 export BB_BIN_DIR=/home/frederic/code/UK_biobank_pipeline_v_1-master
 
 # add cmake
-export PATH=/cm/shared/cmake-3.13.4-Linux-x86_64/bin:${PATH}
+#module load cmake
+#export PATH=/cm/shared/cmake-3.13.4-Linux-x86_64/bin:${PATH}
 
 # slurm helpers
 alias slacct='sacct --units=G --format JobName%15,JobID,TimelimitRaw,TotalCPU,MaxRSS,MaxVMSize,MaxPages,Elapsed,State,Nodelist'
 alias scancelall='scancel -u frederic'
+
+unset DBUS_SESSION_BUS_ADDRESS
