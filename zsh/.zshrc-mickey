@@ -49,7 +49,7 @@ export GOPATH=/cm/shared/go/bin
 export PATH=${GOPATH}:${PATH}
 
 # add workbench
-module load workbench
+#module load workbench
 
 # add ukbb pipeline
 export BB_BIN_DIR=/home/frederic/code/UK_biobank_pipeline_v_1-master
@@ -61,5 +61,6 @@ export BB_BIN_DIR=/home/frederic/code/UK_biobank_pipeline_v_1-master
 # slurm helpers
 alias slacct='sacct --units=G --format JobName%15,JobID,TimelimitRaw,TotalCPU,MaxRSS,MaxVMSize,MaxPages,Elapsed,State,Nodelist'
 alias scancelall='scancel -u frederic'
+alias scancelpending='scancel -u frederic -t PENDING'
 
 unset DBUS_SESSION_BUS_ADDRESS
