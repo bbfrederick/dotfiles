@@ -4,11 +4,12 @@ module load fsl
 echo "FSL loaded"
 
 # freesurfer stuff
-module load freesurfer/dev
+module load freesurfer
 echo "freesurfer loaded"
+export SUBJECTS_DIR=/data/frederic/SURFER
 
 # conda stuff
-module load anaconda3
+module load miniforge3
 echo "conda binary is "${CONDA_EXE}
 
 # ANTs stuff
