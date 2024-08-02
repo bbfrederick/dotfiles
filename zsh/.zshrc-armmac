@@ -12,8 +12,9 @@ export FSLDIR PATH
 
 # ANTs stuff
 ANTSDIR=/opt/ANTs-2.5.0_M1
-PATH=${ANTSDIR}/bin:${PATH}
-export ANTSDIR PATH
+ANTSPATH=${ANTSDIR}/bin
+PATH=${ANTSPATH}:${PATH}
+export ANTSPATH PATH
 
 # auto-inserted by @update.afni.binaries :
 export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/opt/X11/lib/flat_namespace
