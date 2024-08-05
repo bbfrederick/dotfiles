@@ -60,10 +60,10 @@ export GOPATH=/cm/shared/go/bin
 export PATH=${GOPATH}:${PATH}
 
 # >>> conda initialize >>>
-if [ -d "${HOME}/opt/anaconda3" ];then
-    CONDADIR=${HOME}/opt/anaconda3
+if [ -d "${HOME}/opt/miniforge3" ];then
+    CONDADIR=${HOME}/opt/miniforge3
 else
-    CONDADIR=/cm/shared/anaconda3
+    CONDADIR=/cm/shared/miniforge3
 fi
 
 echo "CONDADIR is "${CONDADIR}

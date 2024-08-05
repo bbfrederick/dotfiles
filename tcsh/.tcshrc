@@ -77,16 +77,16 @@ setenv PATH "/opt/local/libexec/qt5/bin:$PATH"
 alias listports 'sudo port -qv installed requested and active'
 setenv MANPATH "/opt/local/man:${MANPATH}"
 
-## add anaconda python
+## add miniforge python
 # >>> conda initialize >>>
-if ( -f "${HOME}/opt/anaconda3/etc/profile.d/conda.csh" ) then
-    source ${HOME}/opt/anaconda3/etc/profile.d/conda.csh
+if ( -f "${HOME}/opt/miniforge3/etc/profile.d/conda.csh" ) then
+    source ${HOME}/opt/miniforge3/etc/profile.d/conda.csh
 else
-    setenv PATH ${HOME}/opt/anaconda3/bin:${PATH}
+    setenv PATH ${HOME}/opt/miniforge3/bin:${PATH}
     endif
 # <<< conda initialize <<<
 
-setenv PATH ~/anaconda3/bin:${PATH}
+setenv PATH ~/miniforge3/bin:${PATH}
 conda activate base
 
 # add ants
