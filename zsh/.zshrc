@@ -137,6 +137,10 @@ else
     fi
 fi
 unset __conda_setup
+
+if [ -f "/Users/frederic/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/Users/frederic/miniforge3/etc/profile.d/mamba.sh"
+fi
 # <<< conda initialize <<<
 
 conda activate mic
