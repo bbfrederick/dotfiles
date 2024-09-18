@@ -25,7 +25,7 @@ alias to4t="rlogin mclean4t2.mclean.harvard.edu -l vnmr1"
 alias to94t="rlogin mclean94t2.mclean.harvard.edu -l vnmr1"
 alias tohms="ssh -Y o2.hms.harvard.edu -l bdf1"
 alias tohmsxfer="ssh -Y transfer.rc.hms.harvard.edu -l bdf1"
-alias toeris="ssh -Y erisone.partners.org -l bbf2"
+alias toeris="ssh -Y eristwo.partners.org -l bbf2"
 alias totesla1="ssh -Y tesla1.mclean.harvard.edu"
 alias tocluster="ssh -Y micc.mclean.harvard.edu -l frederic"
 alias tocluster2="ssh -Y mickey.mclean.harvard.edu -l frederic"
@@ -137,10 +137,6 @@ else
     fi
 fi
 unset __conda_setup
-
-if [ -f "/Users/frederic/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/Users/frederic/miniforge3/etc/profile.d/mamba.sh"
-fi
 # <<< conda initialize <<<
 
 conda activate mic
