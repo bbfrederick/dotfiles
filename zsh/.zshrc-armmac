@@ -67,3 +67,5 @@ else
 echo "freesurfer not installed, skipping"
 fi
 
+# access to hipergator
+alias tohipergator="ssh -Y bbfrederick.harvard@hpg.rc.ufl.edu"
