@@ -1,67 +1,26 @@
 # Now set up the programs and science stuff
-# FSL Setup
-module load fsl
-echo "FSL loaded"
-
-# freesurfer stuff
-module load freesurfer
-echo "freesurfer loaded"
-export SUBJECTS_DIR=/data/frederic/SURFER
-
-# conda stuff
-module load miniforge3
-echo "conda binary is "${CONDA_EXE}
-
-# ANTs stuff
-module load ants
-echo "ANTs loaded"
-
-# add AFNI
-module load afni
-#    set up tab completion for AFNI programs
-if [ -f $HOME/.afni/help/all_progs.COMP.zsh ]
-then
-   autoload -U +X bashcompinit && bashcompinit
-   autoload -U +X compinit && compinit \
-       && source $HOME/.afni/help/all_progs.COMP.zsh
-fi
-echo "AFNI loaded"
-
 
 # # add datalad and friends
 # PATH=${HOME}/.local/bin:${PATH}
 # PATH=/usr/local/sbin:${PATH}
 
-# Add singularity
-module add apptainer
-echo "singularity loaded"
-
-# use the right version of matlab
-module load matlab
-echo "matlab loaded"
+# add spikecheck/spikefix
+PATH=${HOME}/code/spikefix:${PATH}
+export PATH
 
 # add local directory
 PATH=.:${PATH}
 export PATH
 
-# add go
-#module load go
-export GOPATH=/cm/shared/go/bin
-export PATH=${GOPATH}:${PATH}
-
-# add workbench
-#module load workbench
 
 # add ukbb pipeline
 export BB_BIN_DIR=/home/frederic/code/UK_biobank_pipeline_v_1-master
 
-# add cmake
-#module load cmake
-#export PATH=/cm/shared/cmake-3.13.4-Linux-x86_64/bin:${PATH}
-
 # slurm helpers
-alias slacct='sacct --units=G --format JobName%15,JobID,TimelimitRaw,TotalCPU,MaxRSS,MaxVMSize,MaxPages,Elapsed,State,Nodelist'
+alias slacct='sacct --units=G --format JobName%15,JobID,TimelimitRaw,TotalCPU,MaxRSS,MaxVMSize,MaxPages,Elapsed,State,Nodelist --starttime now-24hours'
 alias scancelall='scancel -u frederic'
 alias scancelpending='scancel -u frederic -t PENDING'
 
 unset DBUS_SESSION_BUS_ADDRESS
+
+conda activate mic
