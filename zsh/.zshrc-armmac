@@ -43,7 +43,7 @@ PATH=${MATLABDIR}/bin:${PATH}
 export MATLABDIR PATH
 
 # add local directory
-PATH=.:${PATH}
+#PATH=.:${PATH}
 
 AWSDIR=/usr/local/aws-cli
 PATH=${AWSDIR}:${PATH}
@@ -67,3 +67,5 @@ else
 echo "freesurfer not installed, skipping"
 fi
 
+# access to hipergator
+alias tohipergator="ssh -Y bbfrederick.harvard@hpg.rc.ufl.edu"
